@@ -1,0 +1,39 @@
+#Introduction
+	* New age of encryption- cloud, compliance, and covert affairs.
+	* Plenty of options, but little guidance.
+	* Map requirements to design, and the answer will emerge.
+		
+#Understanding encryption systems
+		* Three components- data, key, engine
+		* Systems are built based on the location of those components
+		* The great encryption tradeoff- the higher you encrypt, the more complex, but the better the protection.
+		* The three laws of encryption
+		* Tokenization and data masking
+	
+#Encryption Layers 		* Application
+		* Database 
+		* File
+		* Volume
+		
+#Key Management Options
+		* HSM/appliance
+		* Virtual appliance
+		* Cloud (SaaS/PaaS)
+		* Software
+
+#Platform Features and Options
+		* Central management
+		* FPE
+		* Tokenization
+		* 	Performance considerations (especially cloud)
+
+#Top Encryption Use Cases
+	* Applications
+	* Databases
+	* Cloud storage
+	* Compliance
+	* Payments (tokenization)
+	
+#Choosing the Best Option
+	* Graphic and highlight of top options
+	* Conclusion
