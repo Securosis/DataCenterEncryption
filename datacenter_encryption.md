@@ -8,11 +8,11 @@ Today we see encryption growing in the data center at an accelerating rate thank
 
 And thanks to increasing demand, there's a growing market of options as vendors and even free and Open Source tools look to meet the opportunity. There have never been more choices, but with choices comes complexity, and outside of your friendly local sales representative, guidance can be hard to come by. 
 
-For example, given a single application collecting an account number from your customers, you could potentially encrypt it in the application, in the database, in storage, or use tokenization instead. The data is encrypted, but what threats is it protecting against? What is the performance overhead? How are keys managed? Does it meet compliance requirements? 
+For example, given a single application collecting an account number from your customers, you could potentially encrypt it in different places; the application, in the database, in storage, or use tokenization instead. The data is encrypted, but where you encrypt presents different concerns. What threats is it protecting against? What is the performance overhead? How are keys managed? Does it meet compliance requirements? 
 
 This paper cuts through the confusion to help you pick the best encryption options for your projects. If you couldn't guess from the title, our focus is on encrypting in the data center. Your applications, servers, databases, and storage. Heck, we'll even cover cloud computing (infrastructure), although [we covered that in depth in this paper](https://securosis.com/Research/Publication/defending-cloud-data-with-infrastructure-encryption). We'll also cover the role of tokenization, and it's relationship with encryption.
 
-We aren't going to cover encryption algorithms, cipher modes, or product comparisons. What we *do* cover are the different high level options and technologies, like when to encrypt in the database vs. your application, or what kinds of data are best suited for tokenization. We also cover key management, some key platform features, and how to tie it all together.
+We aren't going to cover encryption algorithms, cipher modes, or product comparisons. What we *do* cover are the different high level options and technologies, like when to encrypt in the database vs. your application, or what kinds of data are best suited for tokenization. We also cover key management, some essential platform features, and how to tie it all together.
 
 #Understanding Encryption Systems
 
@@ -32,7 +32,7 @@ Three major components define the overall structure of an encryption system are:
 * **The encryption engine:** The component that handles the actual encryption (and decryption) operations.
 * **The key manager:** The component that handles key and passes them to the encryption engine.
 
-In a basic encryption system all three components are likely to be located on the same system. As an example take personal full disk encryption (the built-in tools you might use on your home Windows PC or Mac): the encryption key, data, and engine are all stored and used on the same hardware. Lose that hardware and you lose the key and data -- and the engine, but that isn't normally relevant. (Neither is the key, usually, because it is protected with another key, or passphrase, that is *not* stored on the system -- but if the system is lost while running, with the key is in memory, that becomes a problem).
+In a basic encryption system all three components are likely to be located on the same system. As an example take personal full disk encryption (the built-in tools you might use on your home Windows PC or Mac): the encryption key, data, and engine are all stored and used on the same hardware. Lose that hardware and you lose the key and data -- and the engine, but that isn't normally relevant. (Neither is the key, usually, because it is protected with another key, or passphrase, that is *not* stored on the system -- but if the system is lost while running, with the key is in memory, that becomes a problem). For data centers, it's likely these major components will reside on different systems, increasing complexity and security concerns over how the three pieces work together. 
 
 ##Building an Encryption System
 
