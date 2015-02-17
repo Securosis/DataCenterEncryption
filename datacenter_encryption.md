@@ -105,7 +105,38 @@ Many off-the-shelf disk drives and Storage Area Network (SAN) arrays include aut
 
 In general, the further "up the stack" you deploy encryption, the more secure your data is. The price of that extra security is more difficult integration, usually in the form o application code changes. Ideally we would encrypt all data at the application layer and fully leverage user authentication, authorization, and business context to determine who can see sensitive data. In the real world the code changes required for this level of precision control are often insurmountable engineering challenges and/or cost prohibitive. Surprisingly, transparent encryption often perform _faster_ than application-layer encryption, even with larger data sets. The tradeoff is moving high enough "up the stack" to address relevant threats while minimizing the pain of integration and management. Later in this series we will walk you through the selection process in detail.
 
-Next up in this series: key management options.
+#Key Management Options
+
+As we mentioned back in the opening, the key (pun intended, forgive us) to an effective and secure encryption system is proper placement of the components. Of those, the one that most defines the overall system is the key manager.
+
+Technically you can encrypt without a dedicated key manager. We know of numerous applications that take this approach. We also know of numerous applications that break, fail, or get breached. You will nearly always want to use a dedicate key management option, which breaks down into four categories:
+
+The first thing to consider is how you want deploy external key management. There are four options:
+
+* An HSM or other hardware key management appliance. This provides the highest level of physical security. It is the most common option in sensitive scenarios, such as financial services and payments. The HSM or appliance runs in your data center, and you always want more than one for backup. Lose access, and you lose your keys. Apple, for example, has stated publicly that they physically destroy the admin access smart cards after configuring a new appliance so no one can ever access and compromise the keys, which are destroyed if someone tries to open the housing or certain other access methods. A *hardware root of trust* is the most secure option, and all products also include hardware acceleration for cryptographic operations to improve performance.
+* A key management virtual appliance. Your vendor provides a pre-configured virtual appliance (instance) for you to run where you need it. This reduces costs and increases deployment flexibility, but isn't as secure as dedicated hardware.  If you decide to go this route, use a vendor that takes exceptional memory protection precautions since there are known techniques to pull a key from memory in certain virtualization scenarios. A virtual appliance doesn't offer the same physical security as a physical server, but they do come hardened and support more flexible deployment options -- you can run it within a cloud or virtual datacenter. Some systems also allow you to use an appliance as the hardware root of trust for your keys, but then distribute keys to virtual appliances to improve performance in distributed scenarios (for virtualization, or mere cost savings).
+* Key management software, which can run either on a dedicated server or within a virtual/cloud server. The difference between software and a virtual appliance is that you install the software yourself rather than receiving a configured and hardened image. Otherwise it offers the same risks and benefits as a virtual appliance, assuming you harden the server as well as the virtual appliance.
+* Key management Software as a Service (SaaS). Multiple vendors now offer key management as a service specifically to support public cloud encryption. This also works for other kinds of encryption, including private clouds, but most usage is for public clouds. 
+
+##Client access options
+
+Whatever deployment model you choose, you need some way of getting the keys where they need to be, when they need to be there, for cryptographic operations. 
+
+Clients (whatever needs the key) usually need support for the following core functions for a complete key management lifecycle:
+
+* Key generation
+* Key exchange (gaining access to the key)
+* Additional key lifecycle functions, such as expiring or rotating a key
+
+Depending on what you are doing, you will allow or disallow these functions under different circumstances. For example you might allow key exchange for a particular application, but not allow it any other management functions (such as generation and rotation).
+
+Access is managed one of three ways, and many tools support more than one:
+
+* **Software agent:** A dedicated agent handles the client's side of the key functions. These are generally designed for specific use cases -- such as supporting native full disk encryption, specific backup software, various database platforms, and so on. Some agents may also perform cryptographic functions to additional hardening such as wiping the key from memory after each use.
+* **Application Programming Interfaces:** Many key managers are used to handle keys from custom applications. An API allows you to access key functions directly from application code. Keep in mind that APIs are not all created equal -- they vary widely in platform support, programming languages supported, the simplicity or complexity of the API calls, and the functions accessible via the API.
+* **Protocol & standards support:** The key manager may support a combination of proprietary and open protocols. Various encryption tools support their own protocols for key management, and like a software agent, the key manager may include support -- even if it is from a different vendor. Open protocols and standards are also emerging but not in wide use yet, and may be supported.
+
+We've written a lot about key management in the past. To dig in deeper, take a look at [Pragmatic Key Management for Data Encryption](https://securosis.com/research/publication/pragmatic-key-management-for-data-encryption) and [Understanding and Selecting a Key Management Solution](https://securosis.com/research/publication/understanding-and-selecting-a-key-management-solution).
 
 #Platform Features and Options
 
