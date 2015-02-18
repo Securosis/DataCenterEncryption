@@ -138,9 +138,9 @@ Access is managed one of three ways, and many tools support more than one:
 
 We've written a lot about key management in the past. To dig in deeper, take a look at [Pragmatic Key Management for Data Encryption](https://securosis.com/research/publication/pragmatic-key-management-for-data-encryption) and [Understanding and Selecting a Key Management Solution](https://securosis.com/research/publication/understanding-and-selecting-a-key-management-solution).
 
-#Platform Features and Options
+#Additional Platform Features and Options
 
-The encryption engine and the key store are the major functional pieces in any encryption system, but there are supporting systems with any data center encryption solution that are important for both overall management, as well as tailoring the solution to fit within your application infrastructure. Here we discuss the major supporting components and variations. 
+The encryption engine and the key store are the major functional pieces in any encryption platform, but there are supporting systems with any data center encryption solution that are important for both overall management, as well as tailoring the solution to fit within your application infrastructure. We frequently see the following major features and options to help support customer needs:
 
 ##Central Management
 
