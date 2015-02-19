@@ -179,7 +179,7 @@ Compliance is a principal driver for encryption and tokenization sales. Regulati
 
 ##Payments
 
-[[Placeholder]]
+The payments use case deserves special mention; while commonly viewed as an offshoot of compliance, it's more a backlash to eliminate compliance requirements altogether. Before data breaches it was routine to copy payment data (_e.g.:_ account numbers and credit card numbers) anywhere it could possibly have utility, but _now_ each copy carries the burden of security and oversight, and that means spending money. Lots of it. In most cases payment data was not required, but became so entrenched it would break applications if removed. For example, merchants do not need to store -- or even see -- a customers credit card number for payment, it's central to all of their IT systems. In the payment use case, the idea is to remove payment data, wherever possible, and in turn the threat of a data breach and day to day burden of financial audits. It's here that tokenization, format-preserving encryption and masking have come into their own: removal of sensitive payment data, and along with it the need for security and compliance. Industry organizations like PCI and regulatory bodies have only recently embraced these technical approaches for compliance scope reduction, and more recent variants (_i.e.:_ ApplePay merchant tokens) also benefit user data privacy. 
 
 ##Applications
 
