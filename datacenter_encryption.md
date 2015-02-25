@@ -200,3 +200,28 @@ Every company depends on applications to one degree or another, and these applic
 Application encryption is selected in cases where fine-grained control is needed, to encrypt select data elements, and to only decrypt information as appropriate for the application -- not simply because recognized credentials were provided. This granularity of control comes at a price -- it is more difficult to implement and changes in usage policies may require application code changes, followed by extensive validation and testing. 
 
 While the operational costs may be steep, this level of security is essential for some applications, especially those used in financial and payment applications. For other types of applications, simply protecting data "at rest" (typically in files or databases) with transparent encryption at the file or database layer is suitable.
+
+#Choosing the Best Option
+
+There is no way to fully cover all the myriad of factors in picking a specific encryption option in a (relatively) short paper like this, so we compiled a visual decision tree to at least get you into the right bucket.
+
+Here are a few notes on the decision tree:
+
+* This isn't exhaustive, but should get you looking at the right set of technologies.
+* In all cases, you will want to use secure, external, key management.
+* In general, for discreet data you want to encrypt as high in the stack as possible. When you don't need as much separation of duties, encrypting lower may be easier and more cost effective.
+* For both database and cloud encryption, in a few cases we recommend you encrypt in the application instead.
+* When we list multiple options, the order of preference is top to bottom.
+* As you use the tree, keep the *Three Laws* in mind, since they help guide the *security value* of your decision.
+
+
+Once you understand how encryption systems work, the different layers where you can encrypt, and how those combine to improve (or not) security, it's usually relatively easy to pick the right approach.
+
+The *hard part* is to then architect and implement the encryption technology and integrate it into your data center, application, or cloud service. That's where our other encryption research can be valuable, and the following reports will help:
+
+* [Understanding and Selecting a Key Management Solution](https://securosis.com/research/publication/understanding-and-selecting-a-key-management-solution)  
+* [Pragmatic Key Management for Data Encryption](https://securosis.com/research/publication/pragmatic-key-management-for-data-encryption)  
+* [Understanding and Selecting a Database Encryption or Tokenization Solution](https://securosis.com/Research/Publication/understanding-and-selecting-a-database-encryption-or-tokenization-solution)  
+* [Defending Cloud Data with Infrastructure Encryption](https://securosis.com/Research/Publication/defending-cloud-data-with-infrastructure-encryption) 
+* [Understanding and Selecting a Tokenization Solution](https://securosis.com/Research/Publication/understanding-and-selecting-a-tokenization-solution) 
+* [Understanding and Selecting Data Masking Solutions](https://securosis.com/Research/Publication/understanding-and-selecting-data-masking-solutions)  
