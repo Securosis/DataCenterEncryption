@@ -203,17 +203,16 @@ The operational costs can be steep, but this level of security is essential for 
 
 #Choosing the Best Option
 
-There is no way to fully cover all the myriad of factors in picking a specific encryption option in a (relatively) short paper like this, so we compiled a visual decision tree to at least get you into the right bucket.
+There is no way to fully cover all the myriad factors in picking a specific encryption option in a (relatively) short paper like this, so we compiled a visual decision tree to at least get you into the right bucket.
 
-Here are a few notes on the decision tree:
+Here are a few notes on the decision tree.
 
-* This isn't exhaustive, but should get you looking at the right set of technologies.
-* In all cases, you will want to use secure, external, key management.
+* This isn't exhaustive but should get you looking at the right set of technologies.
+* In all cases you will want secure external key management.
 * In general, for discreet data you want to encrypt as high in the stack as possible. When you don't need as much separation of duties, encrypting lower may be easier and more cost effective.
 * For both database and cloud encryption, in a few cases we recommend you encrypt in the application instead.
-* When we list multiple options, the order of preference is top to bottom.
-* As you use the tree, keep the *Three Laws* in mind, since they help guide the *security value* of your decision.
-
+* When we list multiple options the order of preference is top to bottom.
+* As you use this tree keep the *Three Laws* in mind; they will help you assess the security value of your choices.
 
 Once you understand how encryption systems work, the different layers where you can encrypt, and how those combine to improve (or not) security, it's usually relatively easy to pick the right approach.
 
